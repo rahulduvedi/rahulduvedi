@@ -1,0 +1,51 @@
+name: Refresh profile visuals
+
+on:
+  schedule:
+    - cron: "17 1 * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: contribution-snake
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - name: Generate the public contribution animation
+        uses: Platane/snk/svg-only@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3
+        with:
+          github_user_name: rahulduvedi
+          github_token: ${{ github.token }}
+          outputs: |
+            generated/contribution-snake.svg?palette=github-dark&color_snake=#a78bfa&color_dots=#152238,#23516b,#22d3ee,#34d399,#a78bfa
+
+      - name: Check out the profile
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          ref: main
+          path: profile
+          persist-credentials: false
+
+      - name: Publish changed profile visuals
+        working-directory: profile
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p assets
+          sed 's/<svg /<svg style="background:#0b1220" /' ../generated/contribution-snake.svg > assets/contribution-snake.svg
+          node .github/scripts/update-oss-stats.mjs
+          git add -- assets/contribution-snake.svg assets/oss-signal.svg
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Refresh profile visuals"
+          git -c credential.helper= -c 'credential.helper=!f() { printf "%s\n" "username=x-access-token" "password=$GITHUB_TOKEN"; }; f' push origin HEAD:main

@@ -1,38 +1,112 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="260" viewBox="0 0 900 260" fill="none" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="320" viewBox="0 0 900 320" fill="none" role="img" aria-labelledby="title description">
   <title id="title">Rahul Duvedi | Go. Linux. Open source.</title>
-  <desc id="description">A dark navy terminal banner for Rahul Duvedi, with a cyan prompt, green branch motif, and the handle @rahulduvedi.</desc>
+  <desc id="description">A neon terminal for Rahul Duvedi. Animated circuitry connects build, debug, and upstream around a glowing code symbol. The banner reads Go. Linux. Open source. Building, debugging, and contributing upstream.</desc>
   <defs>
-    <linearGradient id="background" x1="0" y1="0" x2="900" y2="260" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0C1728"/>
-      <stop offset="1" stop-color="#080F1B"/>
+    <linearGradient id="background" x1="0" y1="0" x2="900" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#091425"/>
+      <stop offset="0.55" stop-color="#0C1124"/>
+      <stop offset="1" stop-color="#10102A"/>
     </linearGradient>
-    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M32 0H0V32" stroke="#20334C" stroke-width="1" stroke-opacity="0.32"/>
+    <linearGradient id="neon" x1="560" y1="64" x2="842" y2="284" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#64F5D2"/>
+      <stop offset="0.45" stop-color="#67DFFF"/>
+      <stop offset="1" stop-color="#BB83FF"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="900" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4DE1C1" stop-opacity="0.6"/>
+      <stop offset="0.48" stop-color="#427087" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#A771FF" stop-opacity="0.65"/>
+    </linearGradient>
+    <radialGradient id="halo">
+      <stop stop-color="#4850BE" stop-opacity="0.26"/>
+      <stop offset="0.5" stop-color="#176D89" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#176D89" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" stroke="#55629B" stroke-opacity="0.09"/>
     </pattern>
-    <clipPath id="card">
-      <rect x="1" y="1" width="898" height="258" rx="18"/>
-    </clipPath>
+    <filter id="glow" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="card"><rect x="1" y="1" width="898" height="318" rx="20"/></clipPath>
   </defs>
+  <style>
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .flow { stroke-dasharray: 4 12; animation: flow 8s linear infinite; }
+    .orbit { transform-origin: 731px 181px; animation: orbit 32s linear infinite; }
+    .float { animation: float 5s ease-in-out infinite; }
+    .pulse { animation: pulse 4s ease-in-out infinite; }
+    .spark { animation: spark 5s ease-in-out infinite; }
+    .spark-late { animation-delay: -2.5s; }
+    .cursor { animation: cursor 2s ease-in-out infinite; }
+    @keyframes flow { to { stroke-dashoffset: -128; } }
+    @keyframes orbit { to { transform: rotate(360deg); } }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+    @keyframes pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+    @keyframes spark { 0%, 100% { opacity: 0.25; } 50% { opacity: 0.9; } }
+    @keyframes cursor { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) {
+      .flow, .orbit, .float, .pulse, .spark, .cursor { animation: none; }
+    }
+  </style>
   <g clip-path="url(#card)">
-    <rect width="900" height="260" fill="url(#background)"/>
-    <rect x="512" width="388" height="260" fill="url(#grid)"/>
-    <path d="M0 57H900" stroke="#203047"/>
-    <circle cx="31" cy="29" r="5" fill="#FF6B72"/>
-    <circle cx="49" cy="29" r="5" fill="#E9C46A"/>
-    <circle cx="67" cy="29" r="5" fill="#67DDB4"/>
-    <text x="103" y="34" fill="#8293A9" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">~/opensource</text>
-    <text x="864" y="34" text-anchor="end" fill="#91A4BB" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14">@rahulduvedi</text>
-    <text x="43" y="142" fill="#6EE7F0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="46" font-weight="600">&gt;</text>
-    <text x="88" y="144" fill="#F1F5FA" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="52" font-weight="700" letter-spacing="-1.8">Rahul Duvedi</text>
-    <text x="91" y="185" fill="#AFC2D8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21">Go. Linux. <tspan fill="#67DDB4">Open source.</tspan></text>
-    <g stroke="#67DDB4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M725 184V116M725 158C725 138 791 156 791 126V112" stroke-opacity="0.48"/>
-      <circle cx="725" cy="106" r="10" fill="#0B1E25"/>
-      <circle cx="791" cy="102" r="10" fill="#0B1E25"/>
-      <circle cx="725" cy="194" r="10" fill="#0B1E25"/>
+    <rect width="900" height="320" fill="url(#background)"/>
+    <rect x="520" y="50" width="380" height="270" fill="url(#grid)"/>
+    <ellipse cx="731" cy="181" rx="224" ry="191" fill="url(#halo)"/>
+    <path d="M0 51H900" stroke="#617096" stroke-opacity="0.18"/>
+    <circle cx="29" cy="26" r="4.5" fill="#FF7287"/>
+    <circle cx="46" cy="26" r="4.5" fill="#FFCE73"/>
+    <circle cx="63" cy="26" r="4.5" fill="#70E6BC"/>
+    <text x="91" y="31" class="mono" font-size="12" fill="#91A0BD">rahul@opensource:~</text>
+    <circle cx="761" cy="26" r="3" fill="#6CF2CF" class="pulse"/>
+    <text x="868" y="31" text-anchor="end" class="mono" font-size="12" fill="#B0BFDB">@rahulduvedi</text>
+
+    <text x="56" y="93" class="mono" font-size="11" letter-spacing="2.6" fill="#7B96B6">BUILDING IN THE OPEN</text>
+    <path d="M57 124L73 139L57 154" stroke="#68EDD3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="91" y="156" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="54" font-weight="750" letter-spacing="-2" fill="#F1F6FF">Rahul Duvedi</text>
+    <text x="56" y="199" class="mono" font-size="24" letter-spacing="-0.8" fill="#9FD7EF">Go. Linux. <tspan fill="#6DF4CD">Open source.</tspan></text>
+    <text x="57" y="238" class="mono" font-size="14" fill="#A6B5D0">Building. Debugging. Contributing upstream.</text>
+    <rect x="416" y="241" width="8" height="2" rx="1" fill="#77E5EF" class="cursor"/>
+    <circle cx="61" cy="282" r="3" fill="#6DF4CD"/>
+    <text x="73" y="286" class="mono" font-size="11" letter-spacing="0.6" fill="#7F93B1">curious by default · upstream by choice</text>
+
+    <g stroke="url(#neon)" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M565 165H603L628 140H668M567 219H603L628 244H687M780 116L806 90H840M795 201H828L847 220V251M731 113V88M731 250V272" stroke-opacity="0.22" stroke-width="1.5"/>
+      <path d="M565 165H603L628 140H668M567 219H603L628 244H687M780 116L806 90H840M795 201H828L847 220V251M731 113V88M731 250V272" class="flow" stroke-opacity="0.7" stroke-width="1.5"/>
+      <circle cx="565" cy="165" r="3.5" fill="#0C1529"/>
+      <circle cx="567" cy="219" r="3.5" fill="#0C1529"/>
+      <circle cx="840" cy="90" r="3.5" fill="#0C1529"/>
+      <circle cx="847" cy="251" r="3.5" fill="#0C1529"/>
     </g>
-    <path d="M856 89V212" stroke="#203047"/>
-    <path d="M840 228H864" stroke="#6EE7F0" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+    <g class="orbit" stroke="url(#neon)" stroke-width="1.5">
+      <circle cx="731" cy="181" r="88" stroke-opacity="0.12"/>
+      <path d="M731 93A88 88 0 0 1 808 138M731 269A88 88 0 0 1 654 224" stroke-opacity="0.7"/>
+      <circle cx="731" cy="93" r="3" fill="#66F5D2" stroke="none" filter="url(#glow)"/>
+      <circle cx="731" cy="269" r="3" fill="#BD86FF" stroke="none" filter="url(#glow)"/>
+    </g>
+    <g class="float">
+      <path d="M731 115L788 148V214L731 247L674 214V148Z" fill="#0D1730" stroke="url(#neon)" stroke-width="1.5"/>
+      <path d="M731 123L781 152V210L731 239L681 210V152Z" stroke="#81A3E8" stroke-opacity="0.12"/>
+      <path d="M710 163L693 181L710 199M752 163L769 181L752 199M739 156L724 206" stroke="url(#neon)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+      <circle cx="731" cy="115" r="3" fill="#69EED6"/>
+      <circle cx="788" cy="214" r="3" fill="#9D9AFF"/>
+      <circle cx="674" cy="214" r="3" fill="#68DFFA"/>
+    </g>
+    <g class="mono" font-size="10" letter-spacing="1.4">
+      <rect x="600" y="79" width="68" height="23" rx="5" fill="#102033" stroke="#315169"/>
+      <text x="634" y="94" text-anchor="middle" fill="#89ECD9">BUILD</text>
+      <rect x="795" y="118" width="68" height="23" rx="5" fill="#171933" stroke="#494168"/>
+      <text x="829" y="133" text-anchor="middle" fill="#BBA4EE">DEBUG</text>
+      <rect x="682" y="276" width="98" height="23" rx="5" fill="#14203A" stroke="#35456B"/>
+      <text x="731" y="291" text-anchor="middle" fill="#A2CBEF">UPSTREAM</text>
+    </g>
+    <g fill="#9FBDF9">
+      <circle cx="583" cy="120" r="1.4" class="spark"/>
+      <circle cx="864" cy="175" r="1.4" class="spark spark-late"/>
+      <circle cx="617" cy="281" r="1.2" class="spark spark-late"/>
+      <circle cx="821" cy="275" r="1.2" class="spark"/>
+    </g>
   </g>
-  <rect x="1" y="1" width="898" height="258" rx="18" stroke="#23354D" stroke-width="2"/>
+  <rect x="1" y="1" width="898" height="318" rx="20" stroke="url(#edge)" stroke-width="1.5"/>
 </svg>

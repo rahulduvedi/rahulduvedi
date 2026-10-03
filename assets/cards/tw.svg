@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="174" viewBox="0 0 420 174" role="img" aria-labelledby="title description">
+<title id="title">tw</title><desc id="description">Expected patterns + error detection</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#111b30"/><stop offset="1" stop-color="#090f1b"/></linearGradient></defs>
+<rect x="1" y="1" width="418" height="172" rx="16" fill="url(#bg)" stroke="#28354f"/>
+<rect x="1" y="24" width="3" height="124" rx="1.5" fill="#fb7185"/>
+<text x="25" y="31" fill="#94a3b8" font-family="monospace" font-size="12">chainguard-dev/tw</text>
+<text x="25" y="77" fill="#f1f5f9" font-family="system-ui,sans-serif" font-size="34" font-weight="700">tw</text>
+<text x="25" y="108" fill="#cbd5e1" font-family="system-ui,sans-serif" font-size="16">Expected patterns + error detection</text>
+<circle cx="30" cy="145" r="4" fill="#fb7185"/><text x="42" y="149" fill="#fb7185" font-family="monospace" font-size="12" letter-spacing="1">MERGED #180</text>
+<path d="M374 31H391V48M391 31L374 48" stroke="#fb7185" stroke-width="2" fill="none"/>
+</svg>
